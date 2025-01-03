@@ -1,13 +1,17 @@
 import { VStack } from "@chakra-ui/react";
 import Todo from "./Todo";
 
-function TodoList(){
+function TodoList({todo}){
     return(
         <VStack mt='30px' w='100%' gap='14px'>
-            <Todo todo_name='Hello world'/>
-            <Todo todo_name='Hello'/>
-            <Todo todo_name='Hello world'/>
-            <Todo todo_name='Hello'/>
+            {
+                todo.map((todo)=>{
+                    return(
+                        <Todo key={todo.id} todo_name={todo.todo_name} />
+                    )
+                }
+            )  
+            }
         </VStack>
 
     );
