@@ -3,7 +3,12 @@ import { Checkbox } from "./ui/checkbox";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
 
-function Todo({todo_name}){
+
+function Todo({id,todo_name , completed , deleteTodo}){
+    
+    const handleDelete = async () => {
+        await deleteTodo(id);
+    }
     return(
         <Flex bg='#383737' w='100%' border='1px solid' borderRadius='8px' borderColor='#A7A2A2' p='20px 20px'>
             <HStack w='100%' justifyContent='space-between' gap='20px'>
@@ -13,7 +18,7 @@ function Todo({todo_name}){
                 </Text> 
                 <HStack gap='18px'>
                     <IconButton size='md'> <FaEdit /></IconButton>
-                    <IconButton size='md'><RiDeleteBinLine /></IconButton>
+                    <IconButton onClick={handleDelete} size='md'><RiDeleteBinLine /></IconButton>
                 </HStack>  
             </HStack>
         </Flex>

@@ -21,7 +21,7 @@ def todo_create(request):
 def todo_update(request , pk):
     data = request.data
     try:
-        todo = Todo.objects(pk=pk)
+        todo = Todo.objects.get(pk=pk)
     except Todo.DoesNotExist:
         return Response('Todo does not exist')
     
@@ -35,7 +35,7 @@ def todo_update(request , pk):
 @api_view(['DELETE'])
 def todo_delete(response , pk):
     try:
-        todo = Todo.objects(pk=pk)
+        todo = Todo.objects.get(pk=pk)
     except Todo.DoesNotExist:
         return Response('Todo does not exist')
     todo.delete()
