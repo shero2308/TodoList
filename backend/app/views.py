@@ -32,6 +32,7 @@ def todo_update(request , pk):
     
     return Response(serializer.errors)
 
+
 @api_view(['DELETE'])
 def todo_delete(response , pk):
     try:
